@@ -1,4 +1,6 @@
-require('@nomiclabs/hardhat-waffle')
+require('@nomiclabs/hardhat-waffle');
+require('dotenv').config();
+const {PRIVATE_KEY, API_URL} = process.env;
 
 module.exports = {
   solidity: '0.8.4',
@@ -28,7 +30,11 @@ module.exports = {
     },
     goerli: {
       url: 'https://goerli.prylabs.net',
-      accounts: [],
+      accounts: [PRIVATE_KEY],
+    },
+    ropsten: {
+      url: API_URL,
+      accounts: [PRIVATE_KEY]
     },
   },
 }
